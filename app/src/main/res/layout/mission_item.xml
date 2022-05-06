@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clItemInfo"
+    android:layout_width="390dp"
+    android:layout_height="wrap_content"
+    android:visibility="visible">
+
+    <ImageView
+        android:id="@+id/ivType"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:contentDescription="TODO"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_shooting" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/ptsans_regular"
+        android:text="Мониторинг лесоизменений"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/ivVisible"
+        app:layout_constraintStart_toEndOf="@+id/ivType"
+        app:layout_constraintTop_toTopOf="@+id/ivType" />
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/ptsans_regular"
+        android:text="Кодинское / Тагаринское / 12 / 2, 3-5, 11"
+        android:textColor="@color/gray100"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/ivVisible"
+        app:layout_constraintStart_toEndOf="@+id/ivType"
+        app:layout_constraintTop_toBottomOf="@+id/tvName" />
+
+    <ImageView
+        android:id="@+id/ivUpDown"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivType"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivType"
+        app:srcCompat="@drawable/ic_chevron_down" />
+
+    <ImageView
+        android:id="@+id/ivVisible"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="16dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/ivUpDown"
+        app:layout_constraintEnd_toStartOf="@+id/ivUpDown"
+        app:layout_constraintTop_toTopOf="@+id/ivUpDown"
+        app:srcCompat="@drawable/ic_invisible" />
+
+    <View
+        android:id="@+id/viewBottom"
+        android:layout_width="0dp"
+        android:layout_height="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvInfo" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clItemData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewBottom">
+
+        <View
+            android:id="@+id/viewLine3"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/Dark_Blue_35"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/viewFon"
+            android:layout_width="374dp"
+            android:layout_height="0dp"
+            android:background="@drawable/card_background"
+            android:backgroundTint="@color/Dark_Blue_15"
+            app:layout_constraintBottom_toBottomOf="@+id/viewLine4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewLine3" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/ptsanscaption_regular"
+            android:text="12.02.2022"
+            android:textColor="@color/gray100"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="64dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/ptsanscaption_regular"
+            android:text="Показывать: ключевые точки"
+            android:textColor="@color/gray100"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/tvDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvDate" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:max="3"
+            android:paddingHorizontal="0dp"
+            android:progress="0"
+            android:progressBackgroundTint="@color/slider_off"
+            android:progressBackgroundTintMode="screen"
+            android:progressTint="@color/slider_on"
+            android:thumbTint="@color/thumb"
+            app:layout_constraintEnd_toEndOf="@+id/tvDate"
+            app:layout_constraintStart_toStartOf="@+id/tvDot"
+            app:layout_constraintTop_toBottomOf="@+id/tvDot" />
+
+        <TextView
+            android:id="@+id/tvParam1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:fontFamily="@font/ptsanscaption_regular"
+            android:text="ППМ: 23"
+            android:textColor="@color/gray100"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tvDot"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+        <TextView
+            android:id="@+id/tvParam2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/ptsanscaption_regular"
+            android:text="00:35:48"
+            android:textColor="@color/gray100"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tvParam1"
+            app:layout_constraintTop_toTopOf="@+id/tvParam1" />
+
+        <TextView
+            android:id="@+id/tvParam3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:fontFamily="@font/ptsanscaption_regular"
+            android:text="16,4 км"
+            android:textColor="@color/gray100"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/tvParam2"
+            app:layout_constraintTop_toTopOf="@+id/tvParam2" />
+
+        <ImageView
+            android:id="@+id/ivGps"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvParam3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar"
+            app:srcCompat="@drawable/ic_gps" />
+
+        <ImageView
+            android:id="@+id/ivEdit"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivGps"
+            app:layout_constraintEnd_toStartOf="@+id/ivGps"
+            app:layout_constraintTop_toTopOf="@+id/ivGps"
+            app:srcCompat="@drawable/ic_pencil" />
+
+        <View
+            android:id="@+id/viewLine4"
+            android:layout_width="0dp"
+            android:layout_height="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivGps" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

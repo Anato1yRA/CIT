@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="390dp"
+    android:layout_height="match_parent"
+    android:background="@color/Dark_Blue_20"
+    tools:context=".TableFragment">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="290dp"
+        android:layout_height="56dp"
+        android:layout_marginEnd="100dp"
+        android:background="@color/opasity0"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tabIndicatorColor="@color/white"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorGravity="bottom"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/gray100">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabLaers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Слои" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabSubstrates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Подложки" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabMission"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Миссии" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <View
+        android:id="@+id/viewLine5"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/vp2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewLine5">
+
+    </androidx.viewpager2.widget.ViewPager2>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
