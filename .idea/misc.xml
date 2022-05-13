@@ -3,10 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable-v23/progress_background.xml" value="0.3665" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable-v29/progress_background.xml" value="0.3675" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable/card_background.xml" value="0.331" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable/ic_launcher_background.xml" value="0.169" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable/ic_tower_svg.xml" value="0.182" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable/progress_background.xml" value="0.353" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable/seekbar_thumb.xml" value="0.3445" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable/select_type_mission.xml" value="0.335" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable/serch.xml" value="0.1995" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable/serch_view_default.xml" value="0.196" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/drawable/svg_ic_tower.xml" value="0.182" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout-1024x930/main_loyout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout-h930dp/main_activity.xml" value="0.16" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout-land/activity_main.xml" value="0.19114583333333332" />
@@ -24,8 +31,8 @@
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/main_loyout.xml" value="0.18333333333333332" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/maps_activity.xml" value="0.4282238442822384" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/maps_fragment.xml" value="0.7162162162162162" />
-        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/mission_add_fragment.xml" value="0.22" />
-        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/mission_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/mission_add_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/mission_fragment.xml" value="0.27760416666666665" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/mission_item.xml" value="0.5" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/missions_fragment.xml" value="0.25" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/number_picker.xml" value="0.36666666666666664" />
@@ -34,10 +41,11 @@
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/select_type_mission.xml" value="0.9164265129682997" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/shooting_fragment.xml" value="0.9" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/substrates_fragment.xml" value="1.25" />
-        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/switch_item.xml" value="1.7698412698412698" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/switch_item.xml" value="4.0" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/table_fragment.xml" value="0.5199409158050221" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/test.xml" value="0.8822055137844611" />
-        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/tower_fragment.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/toolbar.xml" value="0.5" />
+        <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/tower_fragment.xml" value="0.5301204819277109" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/use_switch.xml" value="2.0" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/layout/visible_item.xml" value="2.12" />
         <entry key="..\:/Users/RAA-SRV/AndroidStudioProjects/CIT/app/src/main/res/menu/menu.xml" value="0.8822055137844611" />

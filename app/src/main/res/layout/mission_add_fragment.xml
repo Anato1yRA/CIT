@@ -13,9 +13,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:src="@drawable/ic_left"
+        android:src="@drawable/ic_forward"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_forward" />
 
     <TextView
         android:id="@+id/textView2"
@@ -89,7 +90,8 @@
                 android:src="@drawable/ic_tower"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_tower" />
 
             <TextView
                 android:id="@+id/textView4"

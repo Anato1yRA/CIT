@@ -10,5 +10,5 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:padding="12dp"
-        app:srcCompat="@drawable/menu1_search" />
+        app:srcCompat="@drawable/ic_search" />
 </FrameLayout>

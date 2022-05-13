@@ -5,30 +5,20 @@
     android:id="@+id/missionFragment"
     android:layout_width="390dp"
     android:layout_height="match_parent"
+    android:fadeScrollbars="false"
+    android:isScrollContainer="false"
+    android:nestedScrollingEnabled="false"
+    android:overScrollMode="never"
     tools:context=".MissionFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar1"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:background="@color/Dark_Blue_15"
-        android:minHeight="48dp"
-        android:padding="0dp"
-        android:paddingVertical="0dp"
-        android:scrollbarSize="0dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu1" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+    <include
+        android:id="@+id/incToolbar"
+        layout="@layout/toolbar"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:background="@color/Dark_Blue_15"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/toolbar1"
-        app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/menu2" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clSearch"
@@ -37,7 +27,8 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar1">
+        app:layout_constraintTop_toBottomOf="@+id/incToolbar"
+        android:nestedScrollingEnabled="false">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
@@ -51,7 +42,8 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            android:nestedScrollingEnabled="false">
 
             <EditText
                 android:id="@+id/etSearch"
@@ -69,25 +61,38 @@
                 app:layout_constraintEnd_toStartOf="@+id/imageView"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck"
+                android:nestedScrollingEnabled="false"/>
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginEnd="4dp"
-                android:src="@drawable/menu1_search"
+                android:src="@drawable/ic_search"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_search"
+                android:nestedScrollingEnabled="false"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <ScrollView
+    <com.example.cit.ScrollViewCustom
+        android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:scrollbarSize="10dp"
+        android:clickable="false"
+        android:fadeScrollbars="false"
+        android:isScrollContainer="false"
+        android:nestedScrollingEnabled="false"
+        android:overScrollMode="never"
+        android:scrollY="0dp"
+        android:scrollbarDefaultDelayBeforeFade="0"
+        android:scrollbarFadeDuration="0"
+        android:scrollbarSize="5dp"
+        android:scrollbars="vertical"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +102,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clMissionList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="false"
+            android:isScrollContainer="false"
+            android:nestedScrollingEnabled="false"
+            android:overScrollMode="never">
 
             <TextView
                 android:id="@+id/tvLocalName"
@@ -131,11 +140,14 @@
                 android:id="@+id/rvLocalList"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fadeScrollbars="false"
+                android:isScrollContainer="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                app:fastScrollEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewLine2"
-                tools:itemCount="3"
                 tools:listitem="@layout/mission_item" />
 
             <TextView
@@ -173,7 +185,8 @@
                 android:src="@drawable/ic_refresh"
                 app:layout_constraintBottom_toBottomOf="@+id/tvServerDate"
                 app:layout_constraintEnd_toStartOf="@+id/tvServerDate"
-                app:layout_constraintTop_toTopOf="@+id/tvServerDate" />
+                app:layout_constraintTop_toTopOf="@+id/tvServerDate"
+                app:srcCompat="@drawable/ic_refresh" />
 
             <View
                 android:id="@+id/viewLine"
@@ -191,14 +204,20 @@
                 android:id="@+id/rvServerList"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:fadeScrollbars="false"
+                android:isScrollContainer="false"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                app:fastScrollEnabled="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewLine"
-                tools:itemCount="3"
-                tools:listitem="@layout/mission_item" />
+                tools:listitem="@layout/mission_item">
+
+            </androidx.recyclerview.widget.RecyclerView>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
+    </com.example.cit.ScrollViewCustom>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clDialog"
@@ -207,7 +226,8 @@
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        android:nestedScrollingEnabled="false">
 
         <TextView
             android:id="@+id/textView"

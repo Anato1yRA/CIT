@@ -1,7 +1,6 @@
 package com.example.cit
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -115,7 +114,7 @@ class TowerFragment : Fragment() {
     private fun openFragment(fragment: Fragment, idFrom: Int) {
         binding.fcNumberPicker.visibility = View.GONE
 
-        val cl = binding.clTowerFragment
+        val cl = binding.clParams
         val set = ConstraintSet()
         set.clone(cl)
         set.connect(R.id.fcNumberPicker, ConstraintSet.TOP, idFrom, ConstraintSet.TOP)
@@ -135,7 +134,7 @@ class TowerFragment : Fragment() {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
     }
 
-    fun setMarker(marker: LatLng){
+    fun setMarker(marker: LatLng) {
         coordinate = marker
 
         toast("Центр миссии задан")

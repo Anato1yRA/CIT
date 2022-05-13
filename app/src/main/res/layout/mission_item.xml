@@ -7,13 +7,39 @@
     android:layout_height="wrap_content"
     android:visibility="visible">
 
+    <TextView
+        android:id="@+id/tvID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/search"
+        android:text="0"
+        android:textColor="@color/search"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvName" />
+
+    <TextView
+        android:id="@+id/tvLatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvLongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/ivType"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
-        android:contentDescription="TODO"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_shooting" />
@@ -24,7 +50,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
+        android:ellipsize="end"
         android:fontFamily="@font/ptsans_regular"
+        android:lines="1"
         android:text="Мониторинг лесоизменений"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -61,7 +89,7 @@
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_marginEnd="16dp"
-        android:visibility="invisible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/ivUpDown"
         app:layout_constraintEnd_toStartOf="@+id/ivUpDown"
         app:layout_constraintTop_toTopOf="@+id/ivUpDown"
@@ -135,15 +163,15 @@
         <SeekBar
             android:id="@+id/seekBar"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginStart="-8dp"
             android:layout_marginTop="6dp"
+            android:layout_marginEnd="-8dp"
             android:max="3"
-            android:paddingHorizontal="0dp"
-            android:progress="0"
-            android:progressBackgroundTint="@color/slider_off"
-            android:progressBackgroundTintMode="screen"
-            android:progressTint="@color/slider_on"
-            android:thumbTint="@color/thumb"
+            android:padding="0dp"
+            android:progress="1"
+            android:progressDrawable="@drawable/seekbar_progress_background"
+            android:thumb="@drawable/seekbar_thumb"
             app:layout_constraintEnd_toEndOf="@+id/tvDate"
             app:layout_constraintStart_toStartOf="@+id/tvDot"
             app:layout_constraintTop_toBottomOf="@+id/tvDot" />
@@ -188,11 +216,10 @@
             android:id="@+id/ivGps"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:layout_marginTop="3dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/tvParam3"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/seekBar"
+            app:layout_constraintTop_toTopOf="@+id/tvParam3"
             app:srcCompat="@drawable/ic_gps" />
 
         <ImageView
@@ -203,7 +230,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/ivGps"
             app:layout_constraintEnd_toStartOf="@+id/ivGps"
             app:layout_constraintTop_toTopOf="@+id/ivGps"
-            app:srcCompat="@drawable/ic_pencil" />
+            app:srcCompat="@drawable/ic_edit" />
 
         <View
             android:id="@+id/viewLine4"

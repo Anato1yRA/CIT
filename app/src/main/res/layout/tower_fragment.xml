@@ -14,9 +14,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="4dp"
-        android:src="@drawable/ic_left"
+        android:src="@drawable/ic_forward"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_forward" />
 
     <TextView
         android:id="@+id/textView7"
@@ -55,6 +56,7 @@
         android:text="Мобильная вышка"
         android:textColor="@color/gray100"
         android:textSize="12sp"
+        android:antialias="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewLine7" />
 
@@ -66,7 +68,8 @@
         android:src="@drawable/ic_tower"
         app:layout_constraintBottom_toBottomOf="@+id/textView8"
         app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toTopOf="@+id/textView8" />
+        app:layout_constraintTop_toTopOf="@+id/textView8"
+        app:srcCompat="@drawable/ic_tower" />
 
     <EditText
         android:id="@+id/etMissionName"
@@ -90,419 +93,443 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8"
         tools:ignore="TouchTargetSizeCheck" />
 
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
-        android:fontFamily="@font/ptsanscaption_regular"
-        android:text="Настройки миссии"
-        android:textColor="@color/gray100"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etMissionName" />
-
-    <View
-        android:id="@+id/view"
+    <ScrollView
+        android:id="@+id/svParams"
         android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/Dark_Blue_65"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/clBottomMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/etMissionName"
+        tools:ignore="SpeakableTextPresentCheck">
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/ic_radius"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clParams"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="34dp"
-        android:src="@drawable/ic_height"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/ptsanscaption_regular"
+                android:text="Настройки миссии"
+                android:textColor="@color/gray100"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="148dp"
-        android:src="@drawable/ic_points"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+            <View
+                android:id="@+id/view"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/Dark_Blue_65"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
-    <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:src="@drawable/ic_tilt_angle"
-        app:layout_constraintStart_toStartOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:antialias="true"
+                android:src="@drawable/ic_radius"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:srcCompat="@drawable/ic_radius" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/ptsanscaption_regular"
-        android:text="Радиус"
-        android:textColor="@color/blue"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="@+id/imageView4" />
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsanscaption_regular"
+                android:text="Радиус"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/clRadius"
+                app:layout_constraintTop_toTopOf="@+id/imageView4" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clRadius"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView10">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRadius"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView4"
+                app:layout_constraintStart_toEndOf="@+id/imageView4">
 
-        <TextView
-            android:id="@+id/tvRadius"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="24"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/tvRadius"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="24"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view100"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/textView100"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="м"
-            android:textColor="@color/white_75"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvRadius"
-            app:layout_constraintStart_toEndOf="@+id/tvRadius" />
+                <TextView
+                    android:id="@+id/textView100"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="м"
+                    android:textColor="@color/white_75"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view100"
+                    app:layout_constraintStart_toEndOf="@+id/tvRadius" />
 
-        <View
-            android:id="@+id/view100"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="@color/blue"
-            app:layout_constraintEnd_toEndOf="@+id/textView100"
-            app:layout_constraintStart_toStartOf="@+id/tvRadius"
-            app:layout_constraintTop_toBottomOf="@+id/tvRadius" />
+                <View
+                    android:id="@+id/view100"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/blue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView100"
+                    app:layout_constraintStart_toStartOf="@+id/tvRadius" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/ptsanscaption_regular"
-        android:text="Высота"
-        android:textColor="@color/blue"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="211dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/ic_points"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view"
+                app:srcCompat="@drawable/ic_points" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clHeight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView13">
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsanscaption_regular"
+                android:text="Точек съёмки"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/clPoints"
+                app:layout_constraintTop_toTopOf="@+id/imageView8" />
 
-        <TextView
-            android:id="@+id/tvHeight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="125"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clPoints"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView8"
+                app:layout_constraintStart_toEndOf="@+id/imageView8">
 
-        <TextView
-            android:id="@+id/textView101"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="м"
-            android:textColor="@color/white_75"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvHeight"
-            app:layout_constraintStart_toEndOf="@+id/tvHeight" />
+                <TextView
+                    android:id="@+id/tvPoints"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="16"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view102"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <View
-            android:id="@+id/view101"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="@color/blue"
-            app:layout_constraintEnd_toEndOf="@+id/textView101"
-            app:layout_constraintStart_toStartOf="@+id/tvHeight"
-            app:layout_constraintTop_toBottomOf="@+id/tvHeight" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <View
+                    android:id="@+id/view102"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/blue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/tvPoints"
+                    app:layout_constraintStart_toStartOf="@+id/tvPoints" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/ptsanscaption_regular"
-        android:text="Точек съёмки"
-        android:textColor="@color/blue"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toTopOf="@+id/imageView8" />
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="34dp"
+                android:src="@drawable/ic_height"
+                app:layout_constraintStart_toStartOf="@+id/imageView4"
+                app:layout_constraintTop_toBottomOf="@+id/imageView4"
+                app:srcCompat="@drawable/ic_height" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clPoints"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView8"
-        app:layout_constraintTop_toBottomOf="@+id/textView14">
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsanscaption_regular"
+                android:text="Высота"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/clHeight"
+                app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
-        <TextView
-            android:id="@+id/tvPoints"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="16"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clHeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+                app:layout_constraintStart_toEndOf="@+id/imageView5">
 
-        <View
-            android:id="@+id/view102"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="@color/blue"
-            app:layout_constraintEnd_toEndOf="@+id/tvPoints"
-            app:layout_constraintStart_toStartOf="@+id/tvPoints"
-            app:layout_constraintTop_toBottomOf="@+id/tvPoints" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tvHeight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="125"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view101"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/ptsanscaption_regular"
-        android:text="Угол наклона"
-        android:textColor="@color/blue"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toTopOf="@+id/imageView9" />
+                <TextView
+                    android:id="@+id/textView101"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="м"
+                    android:textColor="@color/white_75"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view101"
+                    app:layout_constraintStart_toEndOf="@+id/tvHeight" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clTiltAngle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/textView15">
+                <View
+                    android:id="@+id/view101"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/blue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView101"
+                    app:layout_constraintStart_toStartOf="@+id/tvHeight" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/tvTiltAngle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="20"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_tilt_angle"
+                app:layout_constraintStart_toStartOf="@+id/imageView8"
+                app:layout_constraintTop_toTopOf="@+id/imageView5"
+                app:srcCompat="@drawable/ic_tilt_angle" />
 
-        <TextView
-            android:id="@+id/textView103"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="°"
-            android:textColor="@color/white_75"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvTiltAngle"
-            app:layout_constraintStart_toEndOf="@+id/tvTiltAngle" />
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsanscaption_regular"
+                android:text="Угол наклона"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/clTiltAngle"
+                app:layout_constraintTop_toTopOf="@+id/imageView9" />
 
-        <View
-            android:id="@+id/view103"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="@color/blue"
-            app:layout_constraintEnd_toEndOf="@+id/textView103"
-            app:layout_constraintStart_toStartOf="@+id/tvTiltAngle"
-            app:layout_constraintTop_toBottomOf="@+id/tvTiltAngle" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="42dp"
+                android:fontFamily="@font/ptsanscaption_regular"
+                android:text="Общие настройки"
+                android:textColor="@color/gray100"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="42dp"
-        android:fontFamily="@font/ptsanscaption_regular"
-        android:text="Общие настройки"
-        android:textColor="@color/gray100"
-        android:textSize="12sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            <View
+                android:id="@+id/view5"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="4dp"
+                android:background="@color/Dark_Blue_65"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView16" />
 
-    <View
-        android:id="@+id/view5"
-        android:layout_width="0dp"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:background="@color/Dark_Blue_65"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="48dp"
+                android:layout_height="56dp"
+                android:layout_marginTop="28dp"
+                android:src="@drawable/ic_speed"
+                app:layout_constraintStart_toStartOf="@+id/imageView5"
+                app:layout_constraintTop_toBottomOf="@+id/view5"
+                app:srcCompat="@drawable/ic_speed" />
 
-    <ImageView
-        android:id="@+id/imageView10"
-        android:layout_width="48dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/ic_speed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view5" />
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsanscaption_regular"
+                android:text="Скорость"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/clSpeed"
+                app:layout_constraintTop_toTopOf="@+id/imageView10" />
 
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/ptsanscaption_regular"
-        android:text="Скорость"
-        android:textColor="@color/blue"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toTopOf="@+id/imageView10" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clSpeed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView10"
+                app:layout_constraintTop_toBottomOf="@+id/textView17">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView10"
-        app:layout_constraintTop_toBottomOf="@+id/textView17">
+                <TextView
+                    android:id="@+id/tvSpeed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="25"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view104"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-        <TextView
-            android:id="@+id/tvSpeed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="25"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <TextView
+                    android:id="@+id/textView104"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="км/ч"
+                    android:textColor="@color/white_75"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view104"
+                    app:layout_constraintStart_toEndOf="@+id/tvSpeed" />
 
-        <TextView
-            android:id="@+id/textView104"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="км/ч"
-            android:textColor="@color/white_75"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvSpeed"
-            app:layout_constraintStart_toEndOf="@+id/tvSpeed" />
+                <View
+                    android:id="@+id/view104"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/blue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView104"
+                    app:layout_constraintStart_toStartOf="@+id/tvSpeed" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <View
-            android:id="@+id/view104"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="@color/blue"
-            app:layout_constraintEnd_toEndOf="@+id/textView104"
-            app:layout_constraintStart_toStartOf="@+id/tvSpeed"
-            app:layout_constraintTop_toBottomOf="@+id/tvSpeed" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/imageView11"
+                android:layout_width="48dp"
+                android:layout_height="56dp"
+                android:src="@drawable/ic_rounding"
+                app:layout_constraintStart_toStartOf="@+id/imageView9"
+                app:layout_constraintTop_toTopOf="@+id/imageView10"
+                app:srcCompat="@drawable/ic_rounding" />
 
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="48dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="28dp"
-        android:src="@drawable/ic_rounding"
-        app:layout_constraintStart_toStartOf="@+id/imageView9"
-        app:layout_constraintTop_toBottomOf="@+id/view5" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clTiltAngle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintBottom_toBottomOf="@+id/imageView9"
+                app:layout_constraintStart_toEndOf="@+id/imageView9">
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:fontFamily="@font/ptsanscaption_regular"
-        android:text="Cкругление"
-        android:textColor="@color/blue"
-        android:textSize="12sp"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
-        app:layout_constraintTop_toTopOf="@+id/imageView11" />
+                <TextView
+                    android:id="@+id/tvTiltAngle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="20"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view103"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/clRounding"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        app:layout_constraintStart_toEndOf="@+id/imageView11"
-        app:layout_constraintTop_toBottomOf="@+id/textView18">
+                <TextView
+                    android:id="@+id/textView103"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="°"
+                    android:textColor="@color/white_75"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view103"
+                    app:layout_constraintStart_toEndOf="@+id/tvTiltAngle" />
 
-        <TextView
-            android:id="@+id/tvRounding"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="5"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:id="@+id/view103"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/blue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTiltAngle" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:fontFamily="@font/ptsanscaption_regular"
-            android:text="м"
-            android:textColor="@color/white_75"
-            android:textSize="20sp"
-            app:layout_constraintBottom_toBottomOf="@+id/tvRounding"
-            app:layout_constraintStart_toEndOf="@+id/tvRounding" />
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/ptsanscaption_regular"
+                android:text="Cкругление"
+                android:textColor="@color/blue"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/clRounding"
+                app:layout_constraintTop_toTopOf="@+id/imageView11" />
 
-        <View
-            android:id="@+id/view4"
-            android:layout_width="0dp"
-            android:layout_height="2dp"
-            android:background="@color/blue"
-            app:layout_constraintEnd_toEndOf="@+id/textView12"
-            app:layout_constraintStart_toStartOf="@+id/tvRounding"
-            app:layout_constraintTop_toBottomOf="@+id/tvRounding" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clRounding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                app:layout_constraintStart_toEndOf="@+id/imageView11"
+                app:layout_constraintTop_toBottomOf="@+id/textView18">
+
+                <TextView
+                    android:id="@+id/tvRounding"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="5"
+                    android:textColor="@color/white"
+                    android:textSize="24sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view4"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/ptsanscaption_regular"
+                    android:text="м"
+                    android:textColor="@color/white_75"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toTopOf="@+id/view4"
+                    app:layout_constraintStart_toEndOf="@+id/tvRounding" />
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:background="@color/blue"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/textView12"
+                    app:layout_constraintStart_toStartOf="@+id/tvRounding" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/fcNumberPicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clBottomMenu"
@@ -521,7 +548,8 @@
             android:layout_marginTop="12dp"
             android:src="@drawable/ic_check"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_check" />
 
         <TextView
             android:id="@+id/tvSave"
@@ -559,13 +587,5 @@
             app:layout_constraintStart_toEndOf="@+id/ivCancel"
             app:layout_constraintTop_toTopOf="@+id/ivSave" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fcNumberPicker"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

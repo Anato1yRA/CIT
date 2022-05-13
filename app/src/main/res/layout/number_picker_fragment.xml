@@ -46,7 +46,8 @@
         android:backgroundTint="@color/Dark_Blue_35"
         android:src="@drawable/ic_close"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/number_picker" />
+        app:layout_constraintTop_toTopOf="@+id/number_picker"
+        app:srcCompat="@drawable/ic_close" />
 
     <ImageView
         android:id="@+id/ivSetOk"
@@ -58,6 +59,7 @@
         android:backgroundTint="@color/teal_700"
         android:src="@drawable/ic_check"
         app:layout_constraintBottom_toBottomOf="@+id/number_picker"
-        app:layout_constraintStart_toStartOf="@+id/number_picker" />
+        app:layout_constraintStart_toStartOf="@+id/number_picker"
+        app:srcCompat="@drawable/ic_check" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

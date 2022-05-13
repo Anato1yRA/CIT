@@ -2,17 +2,18 @@ package com.example.cit
 
 import android.annotation.SuppressLint
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.Switch
+import android.widget.TextView
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.view.get
+import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,9 +21,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.cit.databinding.MissionFragmentBinding
 import com.example.cit.model.Mission
 
+
 class MissionFragment : Fragment() {
 
     private lateinit var binding: MissionFragmentBinding
+
+    private lateinit var adapter1: RVAdapter
+    private lateinit var adapter2: RVAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
@@ -35,34 +40,40 @@ class MissionFragment : Fragment() {
         fun newInstance() = MissionFragment()
     }
 
+    @SuppressLint("ClickableViewAccessibility")
+    @RequiresApi(Build.VERSION_CODES.M)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val missionListLocal = ArrayList<Mission>()
         missionListLocal.add(
             Mission(
                 1,
                 "shooting",
-                "Мониторинг лесоизменений",
-                "Кодинское / Тагаринское",
+                "Мониторинг лесоизменений a b c d e f g h i j k l m n o p q r s t u v w x y z",
+                "Кодинское / Тагаринское a b c d e f g h i j k l m n o p q r s t u v w x y z",
                 "01.02.2022",
                 0,
                 10,
                 "00:00:00",
                 10.5F,
-                true
+                true,
+                55.753695452960244,
+                37.62014698237181
             )
         )
         missionListLocal.add(
             Mission(
                 2,
                 "tower",
-                "Поиск очагов пожара",
-                "Кодинское / Тагаринское / кв. 12 / в. 2, 3",
+                "Поиск очагов пожара a b c d e f g h i j k l m n o p q r s t u v w x y z",
+                "Кодинское / Тагаринское / кв. 12 / в. 2, 3 a b c d e f g h i j k l m n o p q r s t u v w x y z",
                 "02.02.2022",
                 1,
                 20,
                 "20:00:00",
                 20.5F,
-                false
+                false,
+                59.95114441821376,
+                30.368098206818104
             )
         )
         missionListLocal.add(
@@ -76,7 +87,9 @@ class MissionFragment : Fragment() {
                 30,
                 "30:00:00",
                 30.5F,
-                true
+                true,
+                54.61169880579972,
+                39.711167961359024
             )
         )
         missionListLocal.add(
@@ -90,14 +103,32 @@ class MissionFragment : Fragment() {
                 40,
                 "40:00:00",
                 40.5F,
-                false
+                false,
+                56.33975221903344,
+                43.97157669067383
+            )
+        )
+        missionListLocal.add(
+            Mission(
+                5,
+                "flight",
+                "Пролёт по границе выделов",
+                "Кодинское / Тагаринское / 12 / 2, 3-5, 11",
+                "04.02.2022",
+                3,
+                40,
+                "40:00:00",
+                40.5F,
+                false,
+                54.21076260273506,
+                37.64130458235741
             )
         )
 
         val missionListServer = ArrayList<Mission>()
         missionListServer.add(
             Mission(
-                5,
+                6,
                 "shooting",
                 "Мониторинг лесоизменений",
                 "Кодинское / Тагаринское",
@@ -106,12 +137,14 @@ class MissionFragment : Fragment() {
                 10,
                 "00:00:00",
                 10.5F,
-                true
+                true,
+                51.682426262454705,
+                39.18545667082071
             )
         )
         missionListServer.add(
             Mission(
-                6,
+                7,
                 "tower",
                 "Поиск очагов пожара",
                 "Кодинское / Тагаринское / кв. 12 / в. 2, 3",
@@ -120,12 +153,14 @@ class MissionFragment : Fragment() {
                 20,
                 "20:00:00",
                 20.5F,
-                false
+                false,
+                53.26786088249154,
+                34.4036466255784
             )
         )
         missionListServer.add(
             Mission(
-                7,
+                8,
                 "flight",
                 "Пролёт по границе выделов",
                 "Кодинское / Тагаринское / 12 / 2, 3-5, 11",
@@ -134,7 +169,9 @@ class MissionFragment : Fragment() {
                 30,
                 "30:00:00",
                 30.5F,
-                true
+                true,
+                54.79108794690934,
+                32.064585350453854
             )
         )
 
@@ -151,59 +188,53 @@ class MissionFragment : Fragment() {
         val serverMission = binding.rvServerList
         serverMission.layoutManager = LinearLayoutManager(context)
 
-        val adapter1 = RVAdapter {
+        adapter1 = RVAdapter {
             when (it["operation"]) {
                 "clickItem" -> {
-                    for (i in 0 until missionListLocal.count()) {
-                        val item = localMission[i]
-                        val panel = item.findViewById<ConstraintLayout>(R.id.clItemData)
-                        if (panel.visibility == View.VISIBLE) {
-                            panel.visibility = View.GONE
-                            item.findViewById<ImageView>(R.id.ivUpDown)
-                                .setImageResource(R.drawable.ic_chevron_up)
-                        }
-                    }
+                    adapter2.closeAllPanels()
+                }
 
-                    for (i in 0 until missionListServer.count()) {
-                        val item = serverMission[i]
-                        val panel = item.findViewById<ConstraintLayout>(R.id.clItemData)
-                        if (panel.visibility == View.VISIBLE) {
-                            panel.visibility = View.GONE
-                            item.findViewById<ImageView>(R.id.ivUpDown)
-                                .setImageResource(R.drawable.ic_chevron_up)
-                        }
+                "clickEdit" -> toast("Нажата кнопка Edit")
+
+                "clickGps" -> {
+                    setMarker(it)
+                }
+
+                "delItem" -> {
+                    binding.clDialog.visibility = View.VISIBLE
+                    binding.clDialog.findViewById<Button>(R.id.bNo).setOnClickListener {
+                        adapter1.swipeUndo()
+                        binding.clDialog.visibility = View.GONE
+                    }
+                    binding.clDialog.findViewById<Button>(R.id.bYes).setOnClickListener {
+                        binding.clDialog.visibility = View.GONE
                     }
                 }
-                "clickEdit" -> toast("Нажата кнопка Edit")
-                "clickGps" -> toast("Нажата кнопка Gps")
             }
         }
 
-        val adapter2 = RVAdapter {
+        adapter2 = RVAdapter {
             when (it["operation"]) {
                 "clickItem" -> {
-                    for (i in 0 until missionListLocal.count()) {
-                        val item = localMission[i]
-                        val panel = item.findViewById<ConstraintLayout>(R.id.clItemData)
-                        if (panel.visibility == View.VISIBLE) {
-                            panel.visibility = View.GONE
-                            item.findViewById<ImageView>(R.id.ivUpDown)
-                                .setImageResource(R.drawable.ic_chevron_up)
-                        }
-                    }
+                    adapter1.closeAllPanels()
+                }
 
-                    for (i in 0 until missionListServer.count()) {
-                        val item = serverMission[i]
-                        val panel = item.findViewById<ConstraintLayout>(R.id.clItemData)
-                        if (panel.visibility == View.VISIBLE) {
-                            panel.visibility = View.GONE
-                            item.findViewById<ImageView>(R.id.ivUpDown)
-                                .setImageResource(R.drawable.ic_chevron_up)
-                        }
+                "clickEdit" -> toast("Нажата кнопка Edit")
+
+                "clickGps" -> {
+                    setMarker(it)
+                }
+
+                "delItem" -> {
+                    binding.clDialog.visibility = View.VISIBLE
+                    binding.clDialog.findViewById<Button>(R.id.bNo).setOnClickListener {
+                        adapter2.swipeUndo()
+                        binding.clDialog.visibility = View.GONE
+                    }
+                    binding.clDialog.findViewById<Button>(R.id.bYes).setOnClickListener {
+                        binding.clDialog.visibility = View.GONE
                     }
                 }
-                "clickEdit" -> toast("Нажата кнопка Edit")
-                "clickGps" -> toast("Нажата кнопка Gps")
             }
         }
 
@@ -211,7 +242,6 @@ class MissionFragment : Fragment() {
         adapter2.setItemList(missionListServer)
 
         val swipeGesture1 = object : SwipeGesture() {
-            @SuppressLint("ShowToast")
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 when (direction) {
                     ItemTouchHelper.LEFT -> {
@@ -258,118 +288,137 @@ class MissionFragment : Fragment() {
         val touchServerMission = ItemTouchHelper(swipeGesture2)
         touchServerMission.attachToRecyclerView(serverMission)
 
+        binding.incToolbar.ivAdd.setOnClickListener {
+            openFragment(MissionAddFragment.newInstance())
+        }
 
-        binding.toolbar1.apply {
-            val avSearch = menu.findItem(R.id.search).actionView
-            avSearch.setOnClickListener {
-                if (binding.clSearch.visibility == View.GONE) {
-                    binding.clSearch.visibility = View.VISIBLE
-                    avSearch.background = ColorDrawable(resources.getColor(R.color.slider_on, null))
-                } else {
-                    binding.clSearch.visibility = View.GONE
-                    avSearch.background = ColorDrawable(resources.getColor(R.color.opasity0, null))
-                    binding.etSearch.setText("")
-                }
-            }
-
-            setOnMenuItemClickListener { menuItem ->
-                when (menuItem.itemId) {
-                    R.id.add -> {
-                        openFragment(MissionAddFragment.newInstance())
-                    }
-
-                    R.id.del -> {
-                        var isDel = false
-                        for (i in 0 until missionListLocal.count()) {
-                            val item = localMission[i]
-                            val panel = item.findViewById<ConstraintLayout>(R.id.clItemData)
-                            if (panel.visibility == View.VISIBLE) {
-                                adapter1.swipeItem(i)
-
-                                isDel = true
-
-                                binding.clDialog.visibility = View.VISIBLE
-                                binding.clDialog.findViewById<Button>(R.id.bNo).setOnClickListener {
-                                    adapter1.swipeUndo()
-                                    binding.clDialog.visibility = View.GONE
-                                }
-                                binding.clDialog.findViewById<Button>(R.id.bYes)
-                                    .setOnClickListener {
-                                        binding.clDialog.visibility = View.GONE
-                                    }
-                                break
-                            }
-                        }
-
-                        for (i in 0 until missionListServer.count()) {
-                            val item = serverMission[i]
-                            val panel = item.findViewById<ConstraintLayout>(R.id.clItemData)
-                            if (panel.visibility == View.VISIBLE) {
-                                adapter2.swipeItem(i)
-
-                                isDel = true
-
-                                binding.clDialog.visibility = View.VISIBLE
-                                binding.clDialog.findViewById<Button>(R.id.bNo).setOnClickListener {
-                                    adapter2.swipeUndo()
-                                    binding.clDialog.visibility = View.GONE
-                                }
-                                binding.clDialog.findViewById<Button>(R.id.bYes)
-                                    .setOnClickListener {
-                                        binding.clDialog.visibility = View.GONE
-                                    }
-                                break
-                            }
-                        }
-
-                        if (!isDel) {
-                            toast("Выберите миссию для удаления")
-                        }
-                    }
-                }
-
-                super.onOptionsItemSelected(menuItem)
+        val ivSearch = binding.incToolbar.ivSearch
+        ivSearch.setOnClickListener {
+            if (binding.clSearch.visibility == View.GONE) {
+                binding.clSearch.visibility = View.VISIBLE
+                ivSearch.background = ColorDrawable(resources.getColor(R.color.slider_on, null))
+            } else {
+                binding.clSearch.visibility = View.GONE
+                ivSearch.background = ColorDrawable(resources.getColor(R.color.opasity0, null))
+                binding.etSearch.setText("")
             }
         }
 
-        binding.toolbar2.apply {
-            val onColor = ColorDrawable(resources.getColor(R.color.slider_on, null))
+        binding.etSearch.addTextChangedListener(object :
+            TextWatcher {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
 
-            val menuVisible = menu.findItem(R.id.visibleItem).actionView
-            menuVisible.setOnClickListener {
-                if (menuVisible.background == onColor) {
-                    menuVisible.background =
-                        ColorDrawable(resources.getColor(R.color.opasity0, null))
-                } else {
-                    menuVisible.background = onColor
+            override fun afterTextChanged(editText: Editable) {
+                val searchText = editText.toString().lowercase().trim()
 
-                    toast("Нажата кнопка фильтрации видимых на карте элементов списка")
-                }
+                adapter1.searchStr(searchText)
+                adapter2.searchStr(searchText)
             }
+        })
 
-            val menuFilter = menu.findItem(R.id.filterItem).actionView
-            menuFilter.setOnClickListener {
-                if (menuFilter.background == onColor) {
-                    menuFilter.background =
-                        ColorDrawable(resources.getColor(R.color.opasity0, null))
-                } else {
-                    menuFilter.background = onColor
-
-                    toast("Нажата кнопка включения режима «показывать на карте только миссию под пальцем при проведении пальцем (вверх-вниз) по списку»")
-                }
-            }
-
-            findViewById<Switch>(R.id.mySwitch)
-                .setOnCheckedChangeListener { _, b ->
-                    if (b)
-                        toast("Переключатель видимости всех миссий включен")
-                    else
-                        toast("Переключатель видимости всех миссий выключен")
-                }
+        binding.incToolbar.ivDell.setOnClickListener {
+            adapter1.delItem()
+            adapter2.delItem()
         }
 
-        binding.etSearch.setOnClickListener {
-            Log.d("MyTest", "-")
+        val onColor = ColorDrawable(resources.getColor(R.color.slider_on, null))
+
+        val ivVisible = binding.incToolbar.ivVisible
+        ivVisible.setOnClickListener {
+            if (ivVisible.background == onColor) {
+                ivVisible.background =
+                    ColorDrawable(resources.getColor(R.color.opasity0, null))
+            } else {
+                ivVisible.background = onColor
+
+                toast("Нажата кнопка фильтрации видимых на карте элементов списка")
+            }
+        }
+
+        val ivFilter = binding.incToolbar.ivFilter
+        ivFilter.setOnClickListener {
+            if (ivFilter.background == onColor) {
+                ivFilter.background = ColorDrawable(resources.getColor(R.color.opasity0, null))
+
+                binding.scrollView2.setScrolling(true)
+            } else {
+                ivFilter.background = onColor
+
+                binding.scrollView2.setScrolling(false)
+
+                toast("Проведите по списку для отображения точек на карте")
+            }
+        }
+
+        binding.incToolbar.tbSwitch.setOnCheckedChangeListener { _, b ->
+            if (b)
+                toast("Переключатель видимости всех миссий включен")
+            else
+                toast("Переключатель видимости всех миссий выключен")
+        }
+
+        var oldName = ""
+        var oldLatitude = ""
+        var oldLongitude = ""
+
+        binding.rvLocalList.setOnTouchListener { _, motionEvent ->
+            val el = binding.rvLocalList.findChildViewUnder(motionEvent.x, motionEvent.y)
+
+            if (el != null) {
+                val mName = el.findViewById<TextView>(R.id.tvName).text.toString()
+                val mLatitude = el.findViewById<TextView>(R.id.tvLatitude).text.toString()
+                val mLongitude = el.findViewById<TextView>(R.id.tvLongitude).text.toString()
+
+                if(mLatitude != oldLatitude && mLongitude != oldLongitude && mName != oldName){
+                    oldLatitude = mLatitude
+                    oldLongitude = mLongitude
+                    oldName = mName
+
+                    setMarker(mapOf(
+                        "nameMission" to mName,
+                        "latitude" to mLatitude,
+                        "longitude" to mLongitude
+                    ))
+                }
+            }
+
+            false
+        }
+
+        binding.rvServerList.setOnTouchListener { _, motionEvent ->
+            val el = binding.rvLocalList.findChildViewUnder(motionEvent.x, motionEvent.y)
+
+            if (el != null) {
+                val mName = el.findViewById<TextView>(R.id.tvName).text.toString()
+                val mLatitude = el.findViewById<TextView>(R.id.tvLatitude).text.toString()
+                val mLongitude = el.findViewById<TextView>(R.id.tvLongitude).text.toString()
+
+                if(mLatitude != oldLatitude && mLongitude != oldLongitude && mName != oldName){
+                    oldLatitude = mLatitude
+                    oldLongitude = mLongitude
+                    oldName = mName
+
+                    setMarker(mapOf(
+                        "nameMission" to mName,
+                        "latitude" to mLatitude,
+                        "longitude" to mLongitude
+                    ))
+                }
+            }
+
+            false
+        }
+    }
+
+    private fun setMarker(params: Map<String, String>) {
+        val nameMission = params["nameMission"].toString()
+        val latitude = params["latitude"]!!.toDouble()
+        val longitude = params["longitude"]!!.toDouble()
+
+        val frag = activity?.supportFragmentManager?.findFragmentByTag("MapsFragment")
+        if (frag != null) {
+            (frag as MapsFragment).setMarkerToMap(latitude, longitude, nameMission)
         }
     }
 
@@ -382,6 +431,6 @@ class MissionFragment : Fragment() {
     }
 
     private fun toast(message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, message, Toast.LENGTH_LONG).show()
     }
 }

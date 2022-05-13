@@ -16,6 +16,8 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
 
+    private var markerArray = ArrayList<LatLng>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -41,13 +43,30 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         map.setOnMapClickListener {
             marker = LatLng(it.latitude, it.longitude)
 
-//            map.addMarker(MarkerOptions().position(marker).title("Новый маркер"))
-//            map.moveCamera(CameraUpdateFactory.newLatLng(marker))
-
             val frag = parentFragmentManager.findFragmentByTag("TowerFragment")
             if (frag != null) {
                 (frag as TowerFragment).setMarker(marker)
             }
         }
+    }
+
+    fun setMarkerToMap(latitude: Double, longitude: Double, name: String) {
+        val markerNew = LatLng(latitude, longitude)
+
+        var dMarker = false
+        markerArray.forEach {
+            if (it == markerNew) {
+                dMarker = true
+            }
+        }
+
+        if (!dMarker) {
+            markerArray.add(markerNew)
+
+            map.addMarker(MarkerOptions().position(markerNew).title(""))
+        }
+
+        map.moveCamera(CameraUpdateFactory.newLatLng(markerNew))
+
     }
 }
